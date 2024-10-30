@@ -55,7 +55,7 @@ function flipbook_supports($feature) {
  * @param mod_flipbook_mod_form $form the form
  * @return int new instance id
  */
-function flipbook_add_instance($moduleinstance, $form = null) {
+function flipbook_add_instance($moduleinstance, mod_flipbook_mod_form $form = null) {
     global $DB;
 
     $moduleinstance->timecreated = time();
@@ -120,30 +120,40 @@ function flipbook_delete_instance($id) {
 }
 
 
-function mod_flipbook_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
-    global $DB, $USER;
+function mod_flipbook_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    global $DB;
 
+    // Check context level.
     if ($context->contextlevel != CONTEXT_MODULE) {
         return false;
     }
 
+    // Require course login.
     require_course_login($course, true, $cm);
 
+    // Only serve files from the 'content' file area.
     if ($filearea !== 'content') {
         return false;
     }
 
-    $itemid = (int)array_shift($args);
-    $relativepath = implode('/', $args);
-    $fullpath = "/$context->id/mod_flipbook/$filearea/$itemid/$relativepath";
+    // Extract item ID, filepath, and filename.
+    $itemid = array_shift($args);               // Item ID of the flipbook instance.
+    $filename = array_pop($args);               // Filename of the requested file.
+    $filepath = empty($args) ? '/' : '/' . implode('/', $args) . '/'; // Filepath in storage.
+
+    // Fetch the file from Moodle's file storage.
     $fs = get_file_storage();
-    if (!$file = $fs->get_file_by_hash(sha1($fullpath)) or $file->is_directory()) {
+    $file = $fs->get_file($context->id, 'mod_flipbook', $filearea, $itemid, $filepath, $filename);
+
+    // Check if file exists and is not a directory.
+    if (!$file || $file->is_directory()) {
         return false;
     }
 
-    // Send the file.
+    // Serve the file.
     send_stored_file($file, 0, 0, $forcedownload, $options);
 }
+
 
 
 /**

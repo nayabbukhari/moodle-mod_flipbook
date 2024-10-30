@@ -25,42 +25,53 @@
 require(__DIR__.'/../../config.php');
 require_once(__DIR__.'/lib.php');
 
-// Course module id.
+// Course module id or Activity instance id.
 $id = optional_param('id', 0, PARAM_INT);
-// Activity instance id.
 $f = optional_param('f', 0, PARAM_INT);
+
+
 $cm = get_coursemodule_from_id('flipbook', $id, 0, false, MUST_EXIST);
 $course = get_course($cm->course);
+$moduleinstance = $DB->get_record('flipbook', ['id' => $cm->instance], '*', MUST_EXIST);
+
 $context = context_module::instance($cm->id);
-
-
-if ($id) {
-    $cm = get_coursemodule_from_id('flipbook', $id, 0, false, MUST_EXIST);
-    $course = $DB->get_record('course', ['id' => $cm->course], '*', MUST_EXIST);
-    $moduleinstance = $DB->get_record('flipbook', ['id' => $cm->instance], '*', MUST_EXIST);
-} else {
-    $moduleinstance = $DB->get_record('flipbook', ['id' => $f], '*', MUST_EXIST);
-    $course = $DB->get_record('course', ['id' => $moduleinstance->course], '*', MUST_EXIST);
-    $cm = get_coursemodule_from_instance('flipbook', $moduleinstance->id, $course->id, false, MUST_EXIST);
-}
-
 require_login($course, true, $cm);
 
+// Trigger event.
 \mod_flipbook\event\course_module_viewed::create_from_record($moduleinstance, $cm, $course)->trigger();
 
 $PAGE->set_url('/mod/flipbook/view.php', ['id' => $cm->id]);
 $PAGE->set_title(format_string($moduleinstance->name));
-// $PAGE->requires->js_call_amd('mod_flipbook/flipbook', 'init');
 $PAGE->set_heading(format_string($course->fullname));
 
-$flipbook = $DB->get_record('flipbook', array('id' => $cm->instance), '*', MUST_EXIST);
-$pdfurl = moodle_url::make_pluginfile_url($context->id, 'mod_flipbook', 'content', $flipbook->id, '/', $flipbook->pdf);
-//print_object($pdfurl);
+// Fetch the flipbook file data.
+$sql = "SELECT f.id, f.pdf, fl.filename
+        FROM {flipbook} f
+        JOIN {files} fl ON fl.itemid = f.pdf
+        WHERE f.id = :instanceid AND fl.filename IS NOT NULL AND fl.filename != '.'";
+        
+$params = ['instanceid' => $cm->instance];
+$flipbook_data = $DB->get_record_sql($sql, $params);
 
+// Check if records exist.
+if (!$flipbook_data) {
+    throw new moodle_exception('noflipbook', 'mod_flipbook');
+}
+
+// Display header.
 echo $OUTPUT->header();
 
-echo '<div id="flipbook-container" style="width: 100%; height: 600px; background: #eee;"></div>';
-// Call the JS module and pass the PDF URL.
-$PAGE->requires->js_call_amd('mod_flipbook/flipbook', 'init', array($pdfurl->out(true)));
+// Construct URL for the PDF file.
+$pdfurl = moodle_url::make_pluginfile_url($context->id, 'mod_flipbook', 'content', $flipbook_data->id, '/', $flipbook_data->filename)->out();
+echo '<p><a href="' . $pdfurl . '" download>Download Flipbook PDF</a></p>';
+// Output URL for debugging if needed.
+// print_object($pdfurl->out());
 
+// Display the flipbook container.
+echo '<div id="flipbook-container" style="width: 100%; height: 600px; background: #eee;"></div>';
+
+// Initialize the flipbook JavaScript with the PDF URL.
+$PAGE->requires->js_call_amd('mod_flipbook/flipbook', 'init', [$pdfurl]);
+
+// Output footer.
 echo $OUTPUT->footer();

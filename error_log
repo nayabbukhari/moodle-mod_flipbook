@@ -1,0 +1,97 @@
+[29-Oct-2024 08:50:01 Europe/London] PHP Warning:  Undefined variable $pdfurl in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 52
+[29-Oct-2024 08:50:01 Europe/London] PHP Warning:  foreach() argument must be of type array|object, null given in /home/lmsnetau/public_html/www/dev.lms.net.au/lib/outputrequirementslib.php on line 1060
+[29-Oct-2024 10:54:39 Europe/London] Default exception handler: Exception - Unmatched '}' Debug: 
+Error code: generalexceptionmessage
+* line 175 of /mod/flipbook/lib.php: ParseError thrown
+
+[29-Oct-2024 10:54:41 Europe/London] Default exception handler: Exception - Unmatched '}' Debug: 
+Error code: generalexceptionmessage
+* line 175 of /mod/flipbook/lib.php: ParseError thrown
+
+[29-Oct-2024 11:01:42 Europe/London] PHP Warning:  Undefined variable $pdfurl in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 11:01:42 Europe/London] Default exception handler: Exception - Call to a member function out() on null Debug: 
+Error code: generalexceptionmessage
+* line 57 of /mod/flipbook/view.php: Error thrown
+
+[29-Oct-2024 11:46:58 Europe/London] PHP Warning:  Undefined property: stdClass::$pdf in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 11:47:16 Europe/London] PHP Warning:  Undefined property: stdClass::$pdf in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 11:47:16 Europe/London] Default exception handler: Exception - Object of class stdClass could not be converted to string Debug: 
+Error code: generalexceptionmessage
+* line 905 of /lib/weblib.php: Error thrown
+* line 905 of /lib/weblib.php: call to implode()
+* line 57 of /mod/flipbook/view.php: call to moodle_url::make_pluginfile_url()
+
+[29-Oct-2024 11:48:29 Europe/London] PHP Warning:  Undefined property: stdClass::$pdf in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 12:04:01 Europe/London] PHP Warning:  Undefined variable $flipbook in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 12:04:01 Europe/London] PHP Warning:  Attempt to read property "pdf" on null in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 57
+[29-Oct-2024 13:54:25 Europe/London] Default exception handler: Field "itemid" does not exist in table "flipbook" Debug: 
+Error code: ddlfieldnotexist
+* line 681 of /lib/dml/moodle_database.php: dml_exception thrown
+* line 1634 of /lib/dml/moodle_database.php: call to moodle_database->where_clause()
+* line 55 of /mod/flipbook/view.php: call to moodle_database->get_record()
+
+[29-Oct-2024 13:54:59 Europe/London] Default exception handler: Field "itemid" does not exist in table "flipbook" Debug: 
+Error code: ddlfieldnotexist
+* line 681 of /lib/dml/moodle_database.php: dml_exception thrown
+* line 1634 of /lib/dml/moodle_database.php: call to moodle_database->where_clause()
+* line 55 of /mod/flipbook/view.php: call to moodle_database->get_record()
+
+[29-Oct-2024 13:56:17 Europe/London] Default exception handler: Multiple records found, only one record expected. Debug: SELECT * FROM {files} WHERE itemid = ?
+[array (
+  0 => '607348194',
+)]
+Error code: multiplerecordsfound
+* line 1694 of /lib/dml/moodle_database.php: dml_multiple_records_exception thrown
+* line 1656 of /lib/dml/moodle_database.php: call to moodle_database->get_record_sql()
+* line 1635 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 55 of /mod/flipbook/view.php: call to moodle_database->get_record()
+
+[29-Oct-2024 13:57:21 Europe/London] Default exception handler: Field "0" does not exist in table "files" Debug: 
+Error code: ddlfieldnotexist
+* line 681 of /lib/dml/moodle_database.php: dml_exception thrown
+* line 1634 of /lib/dml/moodle_database.php: call to moodle_database->where_clause()
+* line 55 of /mod/flipbook/view.php: call to moodle_database->get_record()
+
+[29-Oct-2024 13:57:51 UTC] PHP Parse error:  syntax error, unexpected token ">" in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 55
+[29-Oct-2024 14:15:00 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:15:06 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:15:19 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:15:22 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:17:06 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:17:20 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:17:25 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:18:04 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:18:30 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:19:50 UTC] PHP Parse error:  Unclosed '{' on line 66 in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 80
+[29-Oct-2024 14:29:02 UTC] PHP Parse error:  syntax error, unexpected integer "1", expecting ")" in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 62
+[29-Oct-2024 14:39:09 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 97
+[29-Oct-2024 14:39:30 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 96
+[29-Oct-2024 14:39:33 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 96
+[29-Oct-2024 14:40:28 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 96
+[29-Oct-2024 14:40:31 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 96
+[29-Oct-2024 14:41:50 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 95
+[29-Oct-2024 14:41:53 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 95
+[29-Oct-2024 14:42:05 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 95
+[29-Oct-2024 14:44:02 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 97
+[29-Oct-2024 14:44:10 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 97
+[29-Oct-2024 14:44:22 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 97
+[29-Oct-2024 14:47:15 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 92
+[29-Oct-2024 14:47:24 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 92
+[29-Oct-2024 14:49:39 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 92
+[30-Oct-2024 00:02:34 Europe/London] Default exception handler: Exception - Undefined constant "flipbook_data" Debug: 
+Error code: generalexceptionmessage
+* line 71 of /mod/flipbook/view.php: Error thrown
+
+[30-Oct-2024 00:09:10 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:09:14 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:09:41 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:09:44 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:10:13 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:10:16 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:11:04 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:11:07 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:11:17 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:11:20 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:13:00 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:13:10 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
+[30-Oct-2024 00:13:54 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/lmsnetau/public_html/www/dev.lms.net.au/mod/flipbook/view.php on line 84
